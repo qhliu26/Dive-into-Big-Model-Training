@@ -15,6 +15,7 @@ The increasing scale of model size and continuous improvement of performance her
 + DeepSpeed: https://github.com/microsoft/DeepSpeed
 + Fairscale: https://github.com/facebookresearch/fairscale
 + Colossal-AI: https://github.com/hpcaitech/ColossalAI
++ OneFlow: https://github.com/Oneflow-Inc/oneflow
 
 ## BM Background
 
