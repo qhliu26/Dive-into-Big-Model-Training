@@ -4,9 +4,11 @@
 
 📫 Contact me qhliu26@gmail.com
 
-The increasing scale of model size and continuous improvement of performance herald the arrival of the Big Model era. In this report, we explore what and how the big model training works by diving into training objectives and training methodologies. Specifically,training objectives describe how to leverage web-scale data to develop extremely capable and incredibly large models based on self-supervised learning, and training methodologies which are based on distributed training describe how to make big model training a reality. We summarize the existing training methodologies into three main categories: training parallelism, memory-saving technologies, and model sparsity design. Training parallelism can be categorized into data, pipeline, and tensor parallelism according to the dimension of parallelism that takes place. Memory-saving technologies are orthogonal and complementary to training parallelism. And model sparsity design further scales up the model size with a constant computational cost.
+Abstract: The increasing scale of model size and continuous improvement of performance herald the arrival of the Big Model era. In this report, we explore what and how the big model training works by diving into training objectives and training methodologies. Specifically,training objectives describe how to leverage web-scale data to develop extremely capable and incredibly large models based on self-supervised learning, and training methodologies which are based on distributed training describe how to make big model training a reality. We summarize the existing training methodologies into three main categories: training parallelism, memory-saving technologies, and model sparsity design. Training parallelism can be categorized into data, pipeline, and tensor parallelism according to the dimension of parallelism that takes place. Memory-saving technologies are orthogonal and complementary to training parallelism. And model sparsity design further scales up the model size with a constant computational cost.
 
-## Uesful Repositories
+<img src="https://github.com/qhliu26/BM-Training/blob/main/report.png" alt="Report Thumbnail" style="zoom:25%;" />
+
+## Useful Repositories
 
 + PyTorch: https://github.com/pytorch/pytorch
 + TensorFlow: https://github.com/tensorflow/tensorflow
@@ -25,6 +27,20 @@ The increasing scale of model size and continuous improvement of performance her
 | 2020 | [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361) | Performance depends strongly on scale, weakly on model shape |
 | 2021 | [On the Opportunities and Risks of Foundation Models](https://arxiv.org/abs/2108.07258) | A foundation model is any model that is trained on broad data at scale and can be adapted to a wide range of downstream tasks |
 | 2022 | [The 2022 AI Index](http://export.arxiv.org/abs/2205.03468)  | Language models are more capable than ever, but also more biased |
+
+## Glance at Big Model
+
+| Year | Name                                                         | Param | From      |
+| ---- | ------------------------------------------------------------ | ----- | --------- |
+| 2018 | [GPT](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf) | 110M  | OpenAI    |
+| 2018 | [BERT](https://arxiv.org/abs/1810.04805)                     | 349M  | Google    |
+| 2019 | [GPT-2](https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf) | 1.5B  | OpenAI    |
+| 2019 | [Megatron-LM](https://arxiv.org/abs/1909.08053)              | 8.3B  | Nvidia    |
+| 2020 | [Turing-NLG](https://arxiv.org/abs/1910.02054v3)             | 17B   | Microsoft |
+| 2020 | [GPT-3](https://arxiv.org/abs/2005.14165)                    | 175B  | OpenAI    |
+| 2021 | [Switch Transformer](https://arxiv.org/abs/2101.03961)       | 1.6T  | Google    |
+| 2021 | [BaGuaLu](https://pacman.cs.tsinghua.edu.cn/~zjd/publication/ppopp22-bagualu/ppopp22-bagualu.pdf) | 174T  | BAAI      |
+| 2022 | [PaLM](https://arxiv.org/abs/2204.02311)                     | 540B  | Google    |
 
 ## Training Parallelism
 
@@ -69,6 +85,13 @@ The increasing scale of model size and continuous improvement of performance her
 
 ## Memory Saving Design
 
+### Activation Checkpointing
+
+| Year | Title                                                        | Intro                                                        |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 2016 | [Training Deep Nets with Sublinear Memory Cost](https://arxiv.org/abs/1604.06174) | trade computation for memory and train a n layer network with $O(\sqrt{n})$ memory cost |
+| 2019 | [Checkmate: Breaking the Memory Wall with Optimal Tensor Rematerialization](https://arxiv.org/abs/1910.02653) | formalize the problem of training time and memory requirements trading-off  as the tensor rematerialization optimization problem |
+
 ### ZeRO
 
 | Year | Title                                                        | Intro                                                        |
@@ -79,7 +102,9 @@ The increasing scale of model size and continuous improvement of performance her
 
 ### Mix Precision Training
 
-| Year | Title                                                        | Intro                                            |
-| ---- | ------------------------------------------------------------ | ------------------------------------------------ |
-| 2017 | [Mixed Precision Training](https://arxiv.org/abs/1710.03740) | Speed  up training and save memory               |
-| 2018 | [Highly Scalable Deep Learning Training System with Mixed-Precision: Training ImageNet in Four Minutes](https://arxiv.org/abs/1807.11205) | training AlexNet with 95 epochs within 4 minutes |
+| Year | Title                                                        | Intro                                                        |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 2017 | [Mixed Precision Training](https://arxiv.org/abs/1710.03740) | Speed  up training and save memory                           |
+| 2017 | [Flexpoint: An Adaptive Numerical Format for Efficient Training of Deep Neural Networks](https://arxiv.org/abs/1711.02213) | a replacement of 32-bit floating point format training and inference to support modern deep network topologies without modifications |
+| 2018 | [Highly Scalable Deep Learning Training System with Mixed-Precision: Training ImageNet in Four Minutes](https://arxiv.org/abs/1807.11205) | training AlexNet with 95 epochs within 4 minutes             |
+| 2020 | [Ultra-low precision 4-bit training of deep neural networks](https://papers.nips.cc/paper/2020/file/13b919438259814cd5be8cb45877d577-Paper.pdf) | scale the precision of training systems to 4-bits            |
