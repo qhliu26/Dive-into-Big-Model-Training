@@ -18,6 +18,7 @@ Abstract: The increasing scale of model size and continuous improvement of perfo
 + Fairscale: https://github.com/facebookresearch/fairscale
 + Colossal-AI: https://github.com/hpcaitech/ColossalAI
 + OneFlow: https://github.com/Oneflow-Inc/oneflow
++ BMTrain: https://github.com/OpenBMB/BMTrain
 
 ## BM Background
 
