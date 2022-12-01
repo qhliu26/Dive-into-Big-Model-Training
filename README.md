@@ -100,6 +100,7 @@ Abstract: The increasing scale of model size and continuous improvement of perfo
 | 2019 | [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) | Zero Redundancy Optimizer                                    |
 | 2021 | [ZeRO-Offload: Democratizing Billion-Scale Model Training](https://arxiv.org/abs/2101.06840) | offloading data and compute to CPU                           |
 | 2021 | [ZeRO-Infinity: Breaking the GPU Memory Wall for Extreme Scale Deep Learning](https://arxiv.org/abs/2104.07857) | heterogeneous system technology leverages GPU, CPU, and NVMe memory to allow for unprecedented model scale |
+| 2022 | [PatrickStar: Parallel Training of Pre-Trained Models Via Chunk-Based Dynamic Memory Management](https://arxiv.org/abs/2108.05818) | heterogeneous system technology leverages GPU, CPU memory in a more efficient way |
 
 ### Mix Precision Training
 
